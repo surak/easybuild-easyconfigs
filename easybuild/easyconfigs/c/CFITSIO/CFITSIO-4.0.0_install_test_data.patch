@@ -1,0 +1,26 @@
+part of CFITSIO installation is "testprog".
+Let's copy its data (testprog.tpt) into ${installdir}/share to be able use it as sanity_check_program.
+Josef Dvoracek | Institute of Physics | Czech Academy of Sciences | 2019-06-10
+
+diff -Nru cfitsio-4.3.0.orig/Makefile.in cfitsio-4.3.0/Makefile.in
+--- cfitsio-4.3.0.orig/Makefile.in	2023-09-07 12:43:14.076337000 +0200
++++ cfitsio-4.3.0/Makefile.in	2023-09-07 12:45:03.391996561 +0200
+@@ -31,7 +31,9 @@
+ CFITSIO_BIN	= ${DESTDIR}@bindir@
+ CFITSIO_LIB	= ${DESTDIR}@libdir@
+ CFITSIO_INCLUDE	= ${DESTDIR}@includedir@
+-INSTALL_DIRS	= ${DESTDIR}@INSTALL_ROOT@ ${CFITSIO_INCLUDE} ${CFITSIO_LIB} ${CFITSIO_LIB}/pkgconfig
++CFITSIO_DATADIR = ${DESTDIR}@datadir@
++
++INSTALL_DIRS	= ${DESTDIR}@INSTALL_ROOT@ ${CFITSIO_INCLUDE} ${CFITSIO_LIB} ${CFITSIO_LIB}/pkgconfig ${CFITSIO_DATADIR}
+ 
+ 
+ SHELL =		/bin/sh
+@@ -119,6 +121,7 @@
+ 		    fi; \
+ 		done
+ 		/bin/cp fitsio.h fitsio2.h longnam.h drvrsmem.h ${CFITSIO_INCLUDE}
++		/bin/cp testprog.tpt ${CFITSIO_DATADIR}
+ 		/bin/cp cfitsio.pc ${CFITSIO_LIB}/pkgconfig
+ 		@for task in ${FPACK_UTILS} ${UTILS}; do \
+ 		    if [ -f $$task ]; then \

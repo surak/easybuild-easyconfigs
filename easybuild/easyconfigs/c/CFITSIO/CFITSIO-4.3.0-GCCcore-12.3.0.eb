@@ -16,7 +16,7 @@ sources = ['%%(namelower)s-%s.tar.gz' % version]
 patches = ['CFITSIO-4.0.0_install_test_data.patch']
 checksums = [
     {'cfitsio-4.3.0.tar.gz': 'fdadc01d09cf9f54253802c5ec87eb10de51ce4130411415ae88c30940621b8b'},
-    {'CFITSIO-4.0.0_install_test_data.patch': '75559db8b0648bc90ea9bb81a74acfd89913236ee0a2daf533477cddd37ea8a6'},
+    {'CFITSIO-4.0.0_install_test_data.patch': 'f262ecbfeb77c0d92afee76a3f8fbf0cf34107f963fdac318aca039e715eaed9'},
 ]
 
 dependencies = [('cURL', '8.0.1')]
